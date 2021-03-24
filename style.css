@@ -1,0 +1,231 @@
+/*
+This is a good layout for a mobile-first CSS template.
+Following this flow will minimize the number of styles you need to write and will ensure you are thinking, designing and developing mobile-first.
+Most of your styles get written like standard CSS, but for your mobile presentation. Generally speaking, a good mobile presention will stretch out nicely for larger screens.
+
+Sometimes, when we stretch out to larger screens, we need to make minor tweaks for the larger devices -- you can make these tweaks in the tablet media query, or if the issue exists on desktop only, the desktop media query.
+You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
+*/
+
+
+/*********************************************************************
+ LOADS IN A NICE RESET TO ENSURE ALL BROWSERS HAVE THE SAME BASE STYLES
+*********************************************************************/
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+
+/*********************************************************************
+  YOUR MOBILE/BASE STYLES GO HERE
+*********************************************************************/
+
+
+/** SET BORDER BOX EVERYWHERE */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/** APPLY BASE TAG STYLES */
+
+body,
+html {
+    /* Sets default font-size to 16px, ensuring 1em = 16px; */
+    font-size: 16px;
+    font-family: Georgia, sans-serif;
+}
+
+
+/** RESPONSIVE IMAGES */
+
+figure,
+img {
+    /* Sets image width to match parent */
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+header {
+    margin-bottom: 16px;
+}
+
+header p {
+    margin: 0;
+}
+
+h1 {
+  font-style: italic;
+}
+
+/** Caption styles */
+
+.caption,
+figcaption {
+    font-size: 0.9rem;
+    padding: 5px 0;
+}
+
+
+/** BASE CLASSES */
+.annotate {
+  position: relative;
+}
+
+.annotate .dot {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #FFF;
+  color: #FFF;
+}
+
+.annotate .dot .inner {
+  position: absolute;
+  opacity: 0;
+  padding: 25px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.annotate .dot .close {
+  position: absolute;
+  color: #FFF;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  text-decoration: none;
+  opacity: 0;
+}
+
+.annotate .dot.green {
+    background-color: rgba(0, 110, 65, 0.65);
+}
+.annotate .dot.purple {
+    background-color: rgba(74, 2, 242, 0.65);
+}
+.annotate .dot.red {
+    background-color: rgba(230, 11, 65, 0.65);
+}
+.annotate .dot.blue {
+    background-color: rgba(11, 18, 230, 0.65);
+}
+.annotate .dot.pink {
+    background-color: rgba(240, 12, 182, 0.65);
+}
+
+.annotate .dot.active {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0;
+  border: 0;
+  z-index: 2;
+}
+
+.annotate .dot.active .inner,
+.annotate .dot.active .close {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+
+#conversion:not(.active) {
+  top: 19%;
+  left: 17%;
+}
+
+#history:not(.active) {
+  bottom: 38%;
+      left: 31%;
+}
+
+#respond:not(.active) {
+  bottom: 45%;
+    right: 22%;
+}
+
+#skept:not(.active) {
+  top: 21%;
+    right: 33%;
+}
+
+#repairs:not(.active) {
+  top: 14%;
+    right: 24%;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+
+.container.image {
+    max-width: 1000px;
+    padding: 0;
+}
+
+.container.image .caption,
+.container.image figcaption {
+    padding: 5px 10px;
+}
+
+
+/*********************************************************************
+  YOUR TABLET/DESKTOP STYLES GO HERE
+*********************************************************************/
+
+@media(min-width: 681px) {
+    /* Any adjustments for tablets and larger go here.
+    Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
+}
+
+
+/*********************************************************************
+  YOUR DESKTOP-ONLY STYLES GO HERE
+*********************************************************************/
+
+@media(min-width: 769px) {
+    /* Any adjustments for desktop and larger go here.
+    Note these styles will be applied to anything 769px or larger -- so desktop */
+}
+
+
+/*********************************************************************
+  YOUR MEDIUM-DESKTOP-ONLY STYLES GO HERE
+*********************************************************************/
+
+@media(min-width: 805px) {
+    /* Any adjustments for desktop and larger go here.
+    Note these styles will be applied to anything 769px or larger -- so desktop */
+    .container {
+        padding: 0;
+    }
+}
+
+
+/*********************************************************************
+  YOUR LARGE DESKTOP-ONLY STYLES GO HERE
+*********************************************************************/
+
+@media(min-width: 1205px) {
+    /* Any adjustments for desktop and larger go here.
+    Note these styles will be applied to anything 769px or larger -- so desktop */
+    .container.image .caption,
+    .container.image figcaption {
+        padding: 5px 0;
+    }
+}
